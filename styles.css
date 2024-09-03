@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+:root {
+  --font1: 'Roboto', sans-serif;
+  --font2: 'Poppins',  sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  text-align: center;
+  margin-top: 2em;
+}
+
+h1 {
+  padding: 1em;
+  font-family: var(--font1);
+  font-size: 64px;
+  font-weight: 500;
+}
+
+.dados-cliente {
+  display: grid;
+  padding: 1em;
+  margin: 1em;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.dados-cliente li {
+  list-style-type: none;
+}
+
+.dados-cliente label {
+  font-family: var(--font2);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.dados-cliente input {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.form-cliente {
+  margin: 2em;
+  padding: 1em;
+}
+
+.form-cliente li {
+  list-style-type: none;
+  padding: 0.5em;
+}
+
+.form-cliente label {
+  font-family: var(--font2);
+  font-size: 24px;
+}
+
+.form-cliente select {
+  padding: 8px;
+}
+
+.form-cliente input {
+  width: 300px;
+  height: 25px;
+  margin-left: 1px;
+}
+
+button {
+  width: 200px;
+  padding: 1em;
+}

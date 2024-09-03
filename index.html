@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <title>Pesquisa de Vendas</title>
+</head>
+<body>
+    <h1>Pesquisa PDV</h1>
+    <div class="dados-cliente">
+        <ul>
+          <li>
+              <label for="cidade">Cidade:</label>
+              <input type="text" name="cidade" id="cidade">
+              <label for="cliente">Cliente:</label>
+              <input type="text" name="cliente" id="cliente">
+              <label for="loja">Loja:</label>
+              <input type="text" name="loja" id="loja">
+          </li>
+        </ul>
+    </div>
+    <div class="form-cliente">
+        <ul>
+            <li>
+                <label for="pergunta1">Linguiça Toscana pct 5kg?</label>
+                <select name="pergunta1" id="pergunta1" required>
+                  <option value="N.A"></option>
+                  <option value="sim">SIM</option>
+                  <option value="nao">NÃO</option>
+                </select>
+            </li>
+            <li>
+                <label for="pergunta2">Linguiça Toscana Bandeja?</label>
+                <select name="pergunta2" id="pergunta2" required>
+                  <option value="N.A"></option>
+                  <option value="sim">SIM</option>
+                  <option value="nao">NÃO</option>
+                </select>
+            </li>
+            <li>
+              <label for="pergunta3">Linguiça Calabresa FT</label>
+              <select name="pergunta3" id="pergunta3" required>
+                <option value="N.A"></option>
+                <option value="sim">SIM</option>
+                <option value="nao">NÃO</option>
+              </select>
+            </li>
+            <li>
+              <label for="pergunta4">Queijo Parmesão?</label>
+              <select name="pergunta4" id="pergunta4" required>
+                <option value="N.A"></option>
+                <option value="sim">SIM</option>
+                <option value="nao">NÃO</option>
+              </select>
+          </li>
+          <li>
+            <label for="pergunta5">Banha?</label>
+            <select name="pergunta5" id="pergunta5" required>
+              <option value="N.A"></option>
+              <option value="sim">SIM</option>
+              <option value="nao">NÃO</option>
+            </select>
+        </li>
+        <li>
+          <label for="pergunta6">Queijo Cheddar ft</label>
+          <select name="pergunta6" id="pergunta6" required>
+            <option value="N.A"></option>
+            <option value="sim">SIM</option>
+            <option value="nao">NÃO</option>
+          </select>
+        </li>
+        <li>
+          <label for="pergunta7">Bacon cry</label>
+          <select name="pergunta7" id="pergunta7" required>
+            <option value="N.A"></option>
+            <option value="sim">SIM</option>
+            <option value="nao">NÃO</option>
+          </select>
+        </li>
+        <li>
+          <label for="pergunta8">Bacon Fatiado</label>
+          <select name="pergunta8" id="pergunta8" required>
+            <option value="N.A"></option>
+            <option value="sim">SIM</option>
+            <option value="nao">NÃO</option>
+          </select>
+        </li>
+        <li>
+          <label for="pergunta9">Bacon em Cubos</label>
+          <select name="pergunta9" id="pergunta9" required>
+            <option value="N.A"></option>
+            <option value="sim">SIM</option>
+            <option value="nao">NÃO</option>
+          </select>
+        </li>
+        <li>
+          <label for="pergunta10">Salame fatiado</label>
+          <select name="pergunta10" id="pergunta10" required>
+            <option value="N.A"></option>
+            <option value="sim">SIM</option>
+            <option value="nao">NÃO</option>
+          </select>
+        </li>
+        <li>
+          <label for="pergunta11">Pepperoni fatiado</label>
+          <select name="pergunta11" id="pergunta11" required>
+            <option value="N.A"></option>
+            <option value="sim">SIM</option>
+            <option value="nao">NÃO</option>
+          </select>
+        </li>
+        <li>
+          <label for="pergunta12">Doces de Leite</label>
+          <select name="pergunta12" id="pergunta12" required>
+            <option value="N.A"></option>
+            <option value="sim">SIM</option>
+            <option value="nao">NÃO</option>
+          </select>
+          <label for="saboresFaltando">Sabores Faltando:</label>
+          <input type="text" name="saboresFaltando" id="SaboresFaltando">
+        </li>
+        </ul>
+    </div>
+    <button id="save-btn">Salvar Dados</button>
+
+    <script>
+      document.getElementById('save-btn').addEventListener('click', function() {
+          const dados = [];
+          
+          // Coletando os valores dos inputs
+          const cidade = document.getElementById('cidade').value;
+          const cliente = document.getElementById('cliente').value;
+          const loja = document.getElementById('loja').value;
+          dados.push(`Cidade: ${cidade}`);
+          dados.push(`Cliente: ${cliente}`);
+          dados.push(`Loja: ${loja}`);
+
+          // Coletando os valores dos selects
+          for (let i = 1; i <= 12; i++) {
+              const pergunta = document.getElementById(`pergunta${i}`);
+              if (pergunta) {
+                  const resposta = pergunta.value;
+                  dados.push(`Pergunta ${i}: ${resposta}`);
+              }
+          }
+
+          // Coletando o valor do input de sabores faltando
+          const saboresFaltando = document.getElementById('saboresFaltando').value;
+          dados.push(`Sabores Faltando: ${saboresFaltando}`);
+
+          // Convertendo os dados em uma string
+          const dadosTexto = dados.join('\n');
+
+          // Criando um arquivo Blob para download
+          const blob = new Blob([dadosTexto], { type: 'text/plain' });
+          const url = window.URL.createObjectURL(blob);
+          
+
+          // Criando um link para download
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'dados_pesquisa.txt';
+          link.click();
+
+          alert('Dados da pesquisa salvos com sucesso!');
+
+          // Limpando o objeto URL e removendo o link temporário
+          window.URL.revokeObjectURL(url);
+      });
+  </script>
+</body>
+</html>
